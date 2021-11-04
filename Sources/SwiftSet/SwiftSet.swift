@@ -24,15 +24,22 @@ public struct SwiftSet {
     }
 
     func contains(_ value: Int) -> Bool {
-        !items.filter { value == $0 }.isEmpty
+        indexOf(value) != nil
     }
 
     mutating func remove(_ value: Int) {
+        if let index = indexOf(value) {
+            items[index] = nil
+            count -= 1
+        }
+    }
+
+    private func indexOf(_ value: Int) -> Int? {
         for (index, item) in items.enumerated() {
             if item == value {
-                items[index] = nil
-                count -= 1
+                return index
             }
         }
+        return nil
     }
 }
