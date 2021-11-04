@@ -13,8 +13,10 @@ public struct SwiftSet {
     private var count = 0
 
     mutating func add(_ value: Int) {
-        items.insert(value, at: 0);
-        count += 1
+        if(!contains(value)) {
+            items.insert(value, at: 0);
+            count += 1
+        }
     }
 
     func size() -> Int {

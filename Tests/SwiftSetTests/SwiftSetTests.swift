@@ -15,6 +15,13 @@ final class SwiftSetTests: XCTestCase {
         XCTAssertEqual(set.size(), 2)
     }
 
+    func test_add_doesNotAddDuplicateValues() throws {
+        var set = SwiftSet()
+        set.add(1)
+        set.add(1)
+        XCTAssertEqual(set.size(), 1)
+    }
+
     func test_contains_returnsTrueIfTheItemIsInTheSet() throws {
         var set = SwiftSet()
         set.add(1)
