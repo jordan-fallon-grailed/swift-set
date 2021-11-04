@@ -20,4 +20,8 @@ public struct SwiftSet {
     func size() -> Int {
         count
     }
+
+    func contains(_ value: Int) -> Bool {
+        !items.filter { value == $0 }.isEmpty
+    }
 }
