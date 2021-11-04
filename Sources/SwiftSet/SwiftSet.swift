@@ -9,7 +9,7 @@
 // - contains
 
 public struct SwiftSet {
-    private var items: Array<Int> = []
+    private var items: Array<Int?> = []
     private var count = 0
 
     mutating func add(_ value: Int) {
@@ -25,5 +25,14 @@ public struct SwiftSet {
 
     func contains(_ value: Int) -> Bool {
         !items.filter { value == $0 }.isEmpty
+    }
+
+    mutating func remove(_ value: Int) {
+        for (index, item) in items.enumerated() {
+            if item == value {
+                items[index] = nil
+                count -= 1
+            }
+        }
     }
 }

@@ -33,4 +33,12 @@ final class SwiftSetTests: XCTestCase {
         set.add(1)
         XCTAssertFalse(set.contains(2))
     }
+
+    func test_remove_takesAnItemOutOfTheSet() throws {
+        var set = SwiftSet()
+        set.add(1)
+        set.remove(1)
+        XCTAssertFalse(set.contains(1))
+        XCTAssertEqual(set.size(), 0)
+    }
 }
