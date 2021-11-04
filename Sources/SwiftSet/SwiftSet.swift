@@ -9,4 +9,15 @@
 // - contains
 
 public struct SwiftSet {
+    private var items: Array<Int> = []
+    private var count = 0
+
+    mutating func add(_ value: Int) {
+        items.insert(value, at: 0);
+        count += 1
+    }
+
+    func size() -> Int {
+        count
+    }
 }
