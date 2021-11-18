@@ -8,5 +8,33 @@
 // - count
 // - contains
 
-public struct SwiftSet {
+public class SwiftSet {
+    private var list: Array<Int> = []
+    
+    var size: Int = 0
+    func add(_ val: Int) {
+        guard !contains(val) else { return }
+        
+        size += 1
+        list.insert(val, at: 0)
+    }
+    
+    func contains(_ val: Int) -> Bool {
+        for item in list {
+            if item == val {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func remove(_ val: Int) {
+        for (index, item) in list.enumerated() {
+            if item == val {
+                list.remove(at: index)
+                size -= 1
+                return
+            }
+        }
+    }
 }
